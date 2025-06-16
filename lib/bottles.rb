@@ -1,7 +1,7 @@
 class Bottles
 
     def verse(count)
-        "#{bottle_number(count)} #{bottle_plural_agreement(count)} of beer on the wall, #{bottle_number(count)} #{bottle_plural_agreement(count)} of beer.\nTake #{bottle_pronoun(count)} down and pass it around, #{bottle_number(count-=1)} #{bottle_plural_agreement(count)} of beer on the wall.\n"
+        "#{first_word(count)} #{bottle_plural_agreement(count)} of beer on the wall, #{bottle_number(count)} #{bottle_plural_agreement(count)} of beer.\n#{second_phrase(count)}"
     end
 
     def bottle_plural_agreement(count)
@@ -25,6 +25,22 @@ class Bottles
             "one"
         else
             "it"
+        end
+    end
+
+    def first_word(count)
+        if bottle_number(count).is_a? String
+            bottle_number(count).capitalize
+        else
+            bottle_number(count)
+        end
+    end
+
+    def second_phrase(count)
+        if count == 0
+            "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
+        else
+            "Take #{bottle_pronoun(count)} down and pass it around, #{bottle_number(count-=1)} #{bottle_plural_agreement(count)} of beer on the wall.\n"
         end
     end
 end
