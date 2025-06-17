@@ -43,4 +43,20 @@ class Bottles
             "Take #{bottle_pronoun(count)} down and pass it around, #{bottle_number(count-=1)} #{bottle_plural_agreement(count)} of beer on the wall.\n"
         end
     end
+
+    def verses(max, min)
+        lyrics = ""
+
+        max.downto(min) do |count| 
+          lyrics << "#{verse(count)}\n"
+        end
+
+        # count_array = (min..max).to_a
+        # count_array.each do |count|
+        #     lyrics << verse(count)
+        # end
+
+        lyrics
+        # step through the numbers call the verse on each step
+    end
 end
