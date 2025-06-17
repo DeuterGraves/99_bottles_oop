@@ -56,4 +56,8 @@ class Bottles
 
         lyrics
     end
+
+    def song
+        verses(99,0)
+    end
 end
