@@ -48,15 +48,12 @@ class Bottles
         lyrics = ""
 
         max.downto(min) do |count| 
-          lyrics << "#{verse(count)}\n"
+          lyrics << "#{verse(count)}"
+          if count > min
+            lyrics << "\n"
+          end
         end
 
-        # count_array = (min..max).to_a
-        # count_array.each do |count|
-        #     lyrics << verse(count)
-        # end
-
         lyrics
-        # step through the numbers call the verse on each step
     end
 end
