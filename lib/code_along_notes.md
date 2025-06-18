@@ -1,6 +1,16 @@
-## Notes from Reading
+# Notes from Reading
 
-# Chapter 1:
+## "Before" Reading - My Reflections
+Looking at my code here, it leaps out that `count` gets passed around a LOT. Could I make this an instance variable? so it's just "available" instead of constantly passed around, though technically, I guess it's more secure to constantly pass it around, and it may make the verse method a little more readable.
+
+This probably should be split into more than one class - Bottles, Verse, Song... maybe verses - but that feels sufficiently related to verse that splitting those too may be a step tooooooo far.
+
+The methods in the test hint that multiple classes may not be the way to go here anyways.
+
+## Chapter 1:
+
+### Listing 1.1: Incomprehensibly Concise
+
 Evaluate the potential expense of code:
 1. how difficult was it to write
 2. how hard is it to understand
@@ -16,4 +26,3 @@ I'd say it's on the easy end of the spectrum, looking back at it, there's some n
 3. How expensive will it be to change
 
 I think it'll be pretty straightforward to change, the logic is all extracted out from the verse method, so when you're making a change, it's a slightly less daunting amount of text you're editing - you're looking to change a smaller chunk at a go.
-
