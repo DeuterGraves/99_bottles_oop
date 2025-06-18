@@ -60,5 +60,17 @@ Domain questions to consider (introduced in previous section but explored here)
 3. Which Verses are most different? In what way?
 4. What is the rule to determine which verse should be sung next?
 
-### Listing 1.2 Concretely Abstract
+### Listing 1.3 Concretely Abstract
+I think this may be most like my code. WHAT DOES THIS SAY ABOUT ME?! I've been watiing for this moment. lol.
 
+Excellent point made: while changing one of the smaller methods is easy, the change may ripple out and cause the need for many other small changes, which may not be readily apparent until the tests are run or the output is read. This should probably be a bit more apparent from reading the code rather than further down the line - unit testing or ppt.
+
+"You should name methods not after what they do, but after what they mean, what they represent in the context of your domain" - so... aim for descriptive, not exact.
+
+i.e. `def beverage` instead of `def beer`
+
+Looking at my code, I think I've done a fairly good job of that.
+
+*Name methods after the concept they represent rather than how they currently behave*
+
+The book talks about the right abstractions, and I think in my code I did a better job here than Listing 1.3 - why did they have a method just for returning "beer"? that is not a part of the song that changes. My methods only deal with parts of the song that change based on the number of bottles present on the wall. so there's that. I'm not a total monkey.
