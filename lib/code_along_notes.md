@@ -20,12 +20,16 @@ Since it's so hard to tell how many variants there are, it's harder to say how m
 
 Equally hard to guess from the code, again, we'd be leaning on grade school knowledge here, which is ok, but probably best to try toclarify a bit better since in the case of this song- it may vary from country to country, state to state and even down to the city level, bigger questions, legal ones, we definitely wouldn't want to rely on the engineer to "just know".
 
-### Considerations for my refactor (based on reading)
-1. Template the verses. But don't implement the templates as they did in listing 1.2 with lambdas. That did seem unnecessarily fancy. Very much "everything's a nail and this guy just learned about lambdas"
-
 4. What is the rule to determine which verse should be sung next?
 
 This bit is clear from my code - the count determines all.
+
+BUT - it's not like there's a clear cut one rule - we encounter this each time we get to a word or phrase really.
+
+### Considerations for my refactor (based on reading)
+1. Template the verses. But don't implement the templates as they did in listing 1.2 with lambdas. That did seem unnecessarily fancy. Very much "everything's a nail and this guy just learned about lambdas"
+
+
 
 ## Chapter 1:
 
@@ -55,3 +59,6 @@ Domain questions to consider (introduced in previous section but explored here)
 2. Which verses are most alike? In what way?
 3. Which Verses are most different? In what way?
 4. What is the rule to determine which verse should be sung next?
+
+### Listing 1.2 Concretely Abstract
+
