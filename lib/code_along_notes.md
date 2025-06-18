@@ -26,8 +26,16 @@ This bit is clear from my code - the count determines all.
 
 BUT - it's not like there's a clear cut one rule - we encounter this each time we get to a word or phrase really.
 
+AND - I do miserably on "which verse should be sung next".
+
 ### Considerations for my refactor (based on reading)
 1. Template the verses. But don't implement the templates as they did in listing 1.2 with lambdas. That did seem unnecessarily fancy. Very much "everything's a nail and this guy just learned about lambdas"
+
+2. I've really got to review `.map` I used to use it all the dang time and nearly every solution here's used it - especially for the `\n` line breaks, but I remember having trouble with no line break needed on the last verse - infact that failed the test, so I'm curious how these solutions are avoiding that... they seem to have the `.join("\n")` at the end of the verse, which should pop that on the last verse too - unless, I need to double check the tests and read further into this 1.4 Shameless Green solution -- unless the last verse "go to the store and buy some more..." doesn't have the join and is created outside of this `verses` method.
+
+3. Having just read the domain questions in `1.4: Shameless Green` I'm now thinking we need:
+a. a method that outlines the verses in cases/if statements
+b. a method with logic that decides which case to call
 
 
 
@@ -60,7 +68,7 @@ Domain questions to consider (introduced in previous section but explored here)
 3. Which Verses are most different? In what way?
 4. What is the rule to determine which verse should be sung next?
 
-### Listing 1.3 Concretely Abstract
+### Listing 1.3: Concretely Abstract
 I think this may be most like my code. WHAT DOES THIS SAY ABOUT ME?! I've been watiing for this moment. lol.
 
 Excellent point made: while changing one of the smaller methods is easy, the change may ripple out and cause the need for many other small changes, which may not be readily apparent until the tests are run or the output is read. This should probably be a bit more apparent from reading the code rather than further down the line - unit testing or ppt.
@@ -73,4 +81,13 @@ Looking at my code, I think I've done a fairly good job of that.
 
 *Name methods after the concept they represent rather than how they currently behave*
 
-The book talks about the right abstractions, and I think in my code I did a better job here than Listing 1.3 - why did they have a method just for returning "beer"? that is not a part of the song that changes. My methods only deal with parts of the song that change based on the number of bottles present on the wall. so there's that. I'm not a total monkey.
+The book talks about the right abstractions, and I think in my code I did a better job here than Listing 1.3 - why did they have a method just for returning "beer"? that is not a part of the song that changes. My methods only deal with parts of the song that change based on the number of bottles present on the wall. so there's that. I'm not a total monkey... wait, was there a business case for potentially changing the drink down the line?
+
+### Listing 1.4: Shameless Green
+
+This is good. That is all. lol.
+
+### 1.2.3 Comparing Solutions
+https://github.com/seattlerb/flog flog sounds like an interesting code evaluation tool - based on ABC method - Assignments, Branches, and Conditionals.
+
+
