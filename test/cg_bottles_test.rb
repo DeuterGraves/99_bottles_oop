@@ -5,8 +5,8 @@ require_relative '../lib/cg_bottles'
 
 class CgBottlesTest < Minitest::Test
   def test_the_first_verse
-    expected = "99 bottles of beer on the wall, 99 bottles of beer. \n" +
-    "Take one down and pass it around, 98 bottles of beer on the wall. \n"
+    expected = "99 bottles of beer on the wall, 99 bottles of beer.\n" +
+    "Take one down and pass it around, 98 bottles of beer on the wall.\n"
     assert_equal expected, CgBottles.new.verse(99)
   end
 end
