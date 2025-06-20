@@ -13,10 +13,6 @@ class CgBottles
   end
 
   def verses(max, min)
-    if max == 99
-      verse(99) + "\n" + verse(98)
-    else
-      verse(2) + "\n" + verse(1) + "\n" + verse(0)
-    end
+    max.downto(min).collect{|count| verse(count)}.join("\n")
   end
 end
