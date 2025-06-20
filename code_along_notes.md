@@ -158,3 +158,27 @@ What's interesting is - do you really know that you don't know everything you ne
 When I read these examples, for me, if statements feel like balls flowing through a panchinko machine - we have the `if` and `elsif` - we know what marbles are coming and where they'll go and the `else` which should catch all the others - just the same as a case statement, as I read it, I feel like the writer didn't know what to expect and somethings might get past the code - I'm _looking_ for things that might slip through the cracks, when I read a case statement, I don't have that "danger" feeling - this is founded in nothing, and really, in either code path, we have an `else` which will protect us from anything falling through the cracks.
 
 This is probably related to the "wildly different conditions" use typically seen with `if`/`elsif` statements.
+
+### 2.6: Exposing Responsibilities
+
+The danger for me in Listing 2.17 is the whole - what if there' a typo in verses, and it's in the test too and it's all passing, it's just all wrong from top to bottom.
+
+"The problem with the verses implementation (2.17) is that it does not isolate a new, independent example, but instead, it duplicates one that you've already identified."
+
+This duplicate (all duplications here have only minor variations)
+- provides no new information.
+- masks the true responsibility of `verses`\
+
+This quote about the responsibility of `verses` is beautifully broad and possibly applies to all methods:
+
+```
+The verses method is responsible for understanding its input arguments, and for knowing how to use these arguments to produce the correct output.
+```
+
+Responsibilies:
+`verse`: the verse templates
+`verses`: request the lyrics for multiples verses from `verse` and collect the output into a string
+
+Fake It style TDD feels almost like pseudocode - it's pseudocode that passes tests though.
+
+TODO: Go back and make some notes for the Removing Duplication section. (2.3)
