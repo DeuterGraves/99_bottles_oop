@@ -9,4 +9,10 @@ class CgBottlesTest < Minitest::Test
     "Take one down and pass it around, 98 bottles of beer on the wall.\n"
     assert_equal expected, CgBottles.new.verse(99)
   end
+
+  def test_another_verse
+    expected = "3 bottles of beer on the wall, 3 bottles of beer.\n"+
+    "Take one down and pass it around, 2 bottles of beer on the wall.\n"
+    assert_equal expected, CgBottles.new.verse(3)
+  end
 end
