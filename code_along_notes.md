@@ -151,4 +151,10 @@ What's interesting is - do you really know that you don't know everything you ne
 - maximise your understanding of the problem
 - unearth _all_ available infomration
 
+**if/elsif vs case**
+- if/elsif implies that each condition varies in a meaninful way often used to test wildly different conditions
+- case implies that every condition checks for equality against an explicit value - readers expect conditions to be fundamentally the same.
 
+When I read these examples, for me, if statements feel like balls flowing through a panchinko machine - we have the `if` and `elsif` - we know what marbles are coming and where they'll go and the `else` which should catch all the others - just the same as a case statement, as I read it, I feel like the writer didn't know what to expect and somethings might get past the code - I'm _looking_ for things that might slip through the cracks, when I read a case statement, I don't have that "danger" feeling - this is founded in nothing, and really, in either code path, we have an `else` which will protect us from anything falling through the cracks.
+
+This is probably related to the "wildly different conditions" use typically seen with `if`/`elsif` statements.
