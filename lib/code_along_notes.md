@@ -8,6 +8,12 @@ This probably should be split into more than one class - Bottles, Verse, Song...
 
 The methods in the test hint that multiple classes may not be the way to go here anyways.
 
+## Reflections while reading
+
+My `second_phrase` method is basically, the start of a template method. I wonder if on refactor I would've seen that.
+
+My `bottle_plural_agreement` and `bottle_number` methods, should probably have been handled together with the `first_word` method - if not a straight template method with the set number of cases required for the song. having these 3 separate creates needless complexities, there are combinations of the outcomes of these methods that will never happen together - it gives us a lot of unnecessary codepaths.
+
 ### My solution and Domain Questions:
 1. How many verse variants are there?
 Honestly, looking over my code, this is hard to say - I'd go with 3 or 4 if I had to hazard a guess.
@@ -89,5 +95,60 @@ This is good. That is all. lol.
 
 ### 1.2.3 Comparing Solutions
 https://github.com/seattlerb/flog flog sounds like an interesting code evaluation tool - based on ABC method - Assignments, Branches, and Conditionals.
+
+## Chapter 2:
+
+### 2.2: Writing the First Test
+
+"Despite its apparent import, the choice you make here" [regarding: the choice of what to test first.]
+
+- consider the problem
+- sketch out an overall plan
+- pick a starting place and get going
+
+In writing the test, they considered the API that might be created and felt it might have:
+- verse(n) return lyrics for verse with bottle count `n`
+- verses(a, b) return lyrics for verses a-b
+- song return lyrics for the whole song.
+
+**HOT TIP**
+- Ruby programmers by convention use `_` to "name" an unused argument. It will let you create a method that takes an argument without determining what that argument should be so that you can proceed in TDD and get a new test failure to move forward with.
+
+### 2.4: Tolerating Duplication
+
+"As tests get more specific, code should become more generic"
+
+- code becomes more generic by becoming more abstract.
+- DRYing out code can make it more abstract
+
+Pluralization is a red herring - it seems important, because you have incomplete information
+
+count how many times the word "bottle" (incl "bottles") occurs - the fact that it appears so often signals there's an underlying concept that's not yet been unearthed.
+
+- making once instance of "bottle" abstract (so that it can toggle pluralization) makes it harder to see how all the instances of it are similiar.
+
+Questions to ask when modifying/DRYing out code:
+- Does the change I'm contemplating make the code harder to understand?
+Be suspicious of any change that muddies the water - this suggests an insufficient understanding of the problem
+- What is the future cost of doing nothing now?
+Some changes cost the same if they're made now or later - if it doesn't impact the cost - delay making the change - waiting saves you money
+- When will the future arrive, or how soon will I get more information?
+It's better to tolerate duplication than to anticipate the wrong abstraction.
+
+"Subsequent tests, or future requirements, will provide the exact information necessary to improve the code.|
+
+(Stark conditional is a version that creates 2 verse blocks - one for the 2 bottles verse and a second for 99-3 - with an if/else deciding which to run)
+
+Stark conditional is deemed the better of the two because it doesn't abstract anything yet.
+
+What's interesting is - do you really know that you don't know everything you need to know about the problem even at this point? I guess the idea is - get all the tests passing first, then clean up the code.
+
+### 2.5: Hewing to the Plan
+
+"Shameless Green is optimised to be straightforward and intention-reavealing - it doesn't much concern itself with changeability
+
+**Before committing to abstractions:**
+- maximise your understanding of the problem
+- unearth _all_ available infomration
 
 
