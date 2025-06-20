@@ -29,4 +29,11 @@ class CgBottlesTest < Minitest::Test
 
     assert_equal expected,CgBottles.new.verse(1)
   end
+
+  def test_verse_0
+    expected = "No more bottles of beer on the wall, no more bottles of beer.\n"+
+    "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
+
+    assert_equal expected, CgBottles.new.verse(0)
+  end
 end
