@@ -15,4 +15,8 @@ class CgBottles
   def verses(max, min)
     max.downto(min).collect{|count| verse(count)}.join("\n")
   end
+
+  def song
+    verses(99,0)
+  end
 end

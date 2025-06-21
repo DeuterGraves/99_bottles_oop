@@ -14,6 +14,8 @@ My `second_phrase` method is basically, the start of a template method. I wonder
 
 My `bottle_plural_agreement` and `bottle_number` methods, should probably have been handled together with the `first_word` method - if not a straight template method with the set number of cases required for the song. having these 3 separate creates needless complexities, there are combinations of the outcomes of these methods that will never happen together - it gives us a lot of unnecessary codepaths.
 
+At the end of part 2.8, I see my code is in the reverse order of Sandi's - there's only convention and style I guess dictating this. Mine's simply written in the order that the work was done: `verse`, `verses`, and then `song`. There's a friendliness to the reader in doing it in the opposite direction, starting with `song` - it eases them in to what's happening before the big block of text, but also, as a reader, it forces you to read on to understand what `song` is using and in turn what `verses` uses to build `song`.
+
 ### My solution and Domain Questions:
 1. How many verse variants are there?
 Honestly, looking over my code, this is hard to say - I'd go with 3 or 4 if I had to hazard a guess.
@@ -182,3 +184,38 @@ Responsibilies:
 Fake It style TDD feels almost like pseudocode - it's pseudocode that passes tests though.
 
 TODO: Go back and make some notes for the Removing Duplication section. (2.3)
+
+### 2.7 Choosing names (aka: naming things is hard)
+
+Do we need the `song` method?
+
+- Knowlege that one object has about another creates a dependency
+
+Dependencies
+* tie objects together - making change more costly
+
+Goals:
+* message sender: incur a limited number of dependencies
+* method provider: inflict few
+
+To request the song lyrics
+* `song` imposes 1 dependency: you need to know it's name
+* `verses` requires you know:
+  * method name (`verses`)
+  * how many arguments required (2)
+  * first argument is the starting point and must be higher
+  * second argument is the last verse and must be lower than the first
+  * that the song starts on verse 99
+  * the song ends on verse 0
+
+  This means there are many ways the `verses` method could break for senders of the method.
+
+  ### 2.8 Revealing Intentions
+
+  * intention - understanding a computation in essence
+  * implementation - understanding a computation in detail
+
+`song` is the intention (always the entire song)
+`verses(99,0)` is the implementation (lyrics for a range of verses)
+
+Senders of `song` want all lyrics and shouldn't have to worry about the details (`verses(max, min)`)
