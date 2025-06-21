@@ -173,9 +173,9 @@ This duplicate (all duplications here have only minor variations)
 
 This quote about the responsibility of `verses` is beautifully broad and possibly applies to all methods:
 
-```
-The verses method is responsible for understanding its input arguments, and for knowing how to use these arguments to produce the correct output.
-```
+
+>The verses method is responsible for understanding its input arguments, and for knowing how to use these arguments to produce the correct output.
+
 
 Responsibilies:
 `verse`: the verse templates
@@ -183,7 +183,7 @@ Responsibilies:
 
 Fake It style TDD feels almost like pseudocode - it's pseudocode that passes tests though.
 
-TODO: Go back and make some notes for the Removing Duplication section. (2.3)
+**TODO:** Go back and make some notes for the Removing Duplication section. (2.3)
 
 ### 2.7 Choosing names (aka: naming things is hard)
 
