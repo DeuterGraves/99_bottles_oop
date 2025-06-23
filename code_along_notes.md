@@ -81,13 +81,14 @@ I think this may be most like my code. WHAT DOES THIS SAY ABOUT ME?! I've been w
 
 Excellent point made: while changing one of the smaller methods is easy, the change may ripple out and cause the need for many other small changes, which may not be readily apparent until the tests are run or the output is read. This should probably be a bit more apparent from reading the code rather than further down the line - unit testing or ppt.
 
-"You should name methods not after what they do, but after what they mean, what they represent in the context of your domain" - so... aim for descriptive, not exact.
+>You should name methods not after what they do, but after what they mean, what they represent in the context of your domain
+so... aim for descriptive, not exact.
 
 i.e. `def beverage` instead of `def beer`
 
 Looking at my code, I think I've done a fairly good job of that.
 
-*Name methods after the concept they represent rather than how they currently behave*
+>*Name methods after the concept they represent rather than how they currently behave*
 
 The book talks about the right abstractions, and I think in my code I did a better job here than Listing 1.3 - why did they have a method just for returning "beer"? that is not a part of the song that changes. My methods only deal with parts of the song that change based on the number of bottles present on the wall. so there's that. I'm not a total monkey... wait, was there a business case for potentially changing the drink down the line?
 
@@ -102,26 +103,27 @@ https://github.com/seattlerb/flog flog sounds like an interesting code evaluatio
 
 ### 2.2: Writing the First Test
 
-"Despite its apparent import, the choice you make here" [regarding: the choice of what to test first.]
+>Despite its apparent import, the choice you make here hardly matters
+[regarding: the choice of what to test first.]
 
-- consider the problem
-- sketch out an overall plan
-- pick a starting place and get going
+* consider the problem
+* sketch out an overall plan
+* pick a starting place and get going
 
 In writing the test, they considered the API that might be created and felt it might have:
-- verse(n) return lyrics for verse with bottle count `n`
-- verses(a, b) return lyrics for verses a-b
-- song return lyrics for the whole song.
+* verse(n) return lyrics for verse with bottle count `n`
+* verses(a, b) return lyrics for verses a*b
+* song return lyrics for the whole song.
 
 **HOT TIP**
-- Ruby programmers by convention use `_` to "name" an unused argument. It will let you create a method that takes an argument without determining what that argument should be so that you can proceed in TDD and get a new test failure to move forward with.
+Ruby programmers by convention use `_` to "name" an unused argument. It will let you create a method that takes an argument without determining what that argument should be so that you can proceed in TDD and get a new test failure to move forward with.
 
 ### 2.4: Tolerating Duplication
 
-"As tests get more specific, code should become more generic"
+>As tests get more specific, code should become more generic"
 
-- code becomes more generic by becoming more abstract.
-- DRYing out code can make it more abstract
+* code becomes more generic by becoming more abstract.
+* DRYing out code can make it more abstract
 
 Pluralization is a red herring - it seems important, because you have incomplete information
 
@@ -130,14 +132,14 @@ count how many times the word "bottle" (incl "bottles") occurs - the fact that i
 - making once instance of "bottle" abstract (so that it can toggle pluralization) makes it harder to see how all the instances of it are similiar.
 
 Questions to ask when modifying/DRYing out code:
-- Does the change I'm contemplating make the code harder to understand?
-Be suspicious of any change that muddies the water - this suggests an insufficient understanding of the problem
-- What is the future cost of doing nothing now?
+* Does the change I'm contemplating make the code harder to understand?
+Be suspicious of any change that muddies the water * this suggests an insufficient understanding of the problem
+* What is the future cost of doing nothing now?
 Some changes cost the same if they're made now or later - if it doesn't impact the cost - delay making the change - waiting saves you money
-- When will the future arrive, or how soon will I get more information?
+* When will the future arrive, or how soon will I get more information?
 It's better to tolerate duplication than to anticipate the wrong abstraction.
 
-"Subsequent tests, or future requirements, will provide the exact information necessary to improve the code.|
+>Subsequent tests, or future requirements, will provide the exact information necessary to improve the code.|
 
 (Stark conditional is a version that creates 2 verse blocks - one for the 2 bottles verse and a second for 99-3 - with an if/else deciding which to run)
 
@@ -147,15 +149,15 @@ What's interesting is - do you really know that you don't know everything you ne
 
 ### 2.5: Hewing to the Plan
 
-"Shameless Green is optimised to be straightforward and intention-reavealing - it doesn't much concern itself with changeability
+>Shameless Green is optimised to be straightforward and intention-reavealing - it doesn't much concern itself with changeability
 
 **Before committing to abstractions:**
-- maximise your understanding of the problem
-- unearth _all_ available infomration
+* maximise your understanding of the problem
+* unearth _all_ available infomration
 
 **if/elsif vs case**
-- if/elsif implies that each condition varies in a meaninful way often used to test wildly different conditions
-- case implies that every condition checks for equality against an explicit value - readers expect conditions to be fundamentally the same.
+* if/elsif implies that each condition varies in a meaninful way often used to test wildly different conditions
+* case implies that every condition checks for equality against an explicit value - readers expect conditions to be fundamentally the same.
 
 When I read these examples, for me, if statements feel like balls flowing through a panchinko machine - we have the `if` and `elsif` - we know what marbles are coming and where they'll go and the `else` which should catch all the others - just the same as a case statement, as I read it, I feel like the writer didn't know what to expect and somethings might get past the code - I'm _looking_ for things that might slip through the cracks, when I read a case statement, I don't have that "danger" feeling - this is founded in nothing, and really, in either code path, we have an `else` which will protect us from anything falling through the cracks.
 
@@ -165,11 +167,12 @@ This is probably related to the "wildly different conditions" use typically seen
 
 The danger for me in Listing 2.17 is the whole - what if there' a typo in verses, and it's in the test too and it's all passing, it's just all wrong from top to bottom.
 
-"The problem with the verses implementation (2.17) is that it does not isolate a new, independent example, but instead, it duplicates one that you've already identified."
+>The problem with the verses implementation (2.17) is that it does not isolate a new, independent example, but instead, it duplicates one that you've already identified.
+
 
 This duplicate (all duplications here have only minor variations)
-- provides no new information.
-- masks the true responsibility of `verses`\
+* provides no new information.
+* masks the true responsibility of `verses`\
 
 This quote about the responsibility of `verses` is beautifully broad and possibly applies to all methods:
 
@@ -189,7 +192,7 @@ Fake It style TDD feels almost like pseudocode - it's pseudocode that passes tes
 
 Do we need the `song` method?
 
-- Knowlege that one object has about another creates a dependency
+_Knowlege that one object has about another creates a dependency_
 
 Dependencies
 * tie objects together - making change more costly
@@ -208,12 +211,12 @@ To request the song lyrics
   * that the song starts on verse 99
   * the song ends on verse 0
 
-  This means there are many ways the `verses` method could break for senders of the method.
+This means there are many ways the `verses` method could break for senders of the method.
 
-  ### 2.8 Revealing Intentions
+ ### 2.8 Revealing Intentions
 
-  * intention - understanding a computation in essence
-  * implementation - understanding a computation in detail
+ * intention - understanding a computation in essence
+ * implementation - understanding a computation in detail
 
 `song` is the intention (always the entire song)
 `verses(99,0)` is the implementation (lyrics for a range of verses)
