@@ -222,3 +222,31 @@ This means there are many ways the `verses` method could break for senders of th
 `verses(99,0)` is the implementation (lyrics for a range of verses)
 
 Senders of `song` want all lyrics and shouldn't have to worry about the details (`verses(max, min)`)
+
+### 2.9 Writing Cost-Effective Tests
+
+If tests are tied too closely to the code, any change to the code will break the tests.
+
+Tests should confirm what your code does, without any knowledge of how.
+
+### 2.10 Avoiding the Echo-chamber
+
+How to test 100 nearly identical verses?!
+
+Proposal 1:
+```Ruby
+def test_the_whole_song
+  bottles = Bottles.new
+  assert_equal bottles.verses(99, 0), bottles.song
+end
+```
+
+I say: asserting against `bottles.verses(99,0)` actually just checks that `song` calls that code, it doesn't check that the output of either `song`, or `verses`, is correct.
+
+Book also points out: the `song` test is coupled to the `Bottles` implementation so that it will break if the signature or behavior of `verses` changes _even if_ `song` still outputs the correct lyrics.
+
+So, if we change the spelling of `verses` or add a parameter to that method... the test breaks, even though the output of both `verses` and `song` may not change
+
+This means your test is too tightly coupled to your code
+
+

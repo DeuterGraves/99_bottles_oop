@@ -59,4 +59,9 @@ class CgBottlesTest < Minitest::Test
 
     assert_equal expected, CgBottles.new.verses(2, 0)
   end
+
+  def test_the_whole_song
+    bottles = CgBottles.new
+    assert_equal bottles.verses(99, 0), bottles.song
+  end
 end
