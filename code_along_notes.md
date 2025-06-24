@@ -247,6 +247,29 @@ Book also points out: the `song` test is coupled to the `Bottles` implementation
 
 So, if we change the spelling of `verses` or add a parameter to that method... the test breaks, even though the output of both `verses` and `song` may not change
 
-This means your test is too tightly coupled to your code
+This means your test is too tightly coupled to your code.
+
+I'm not going to bother with the code along, but it shows that you can completely break the song too, and it'll still pass. The code example would basically output:
+
+99 bottles of beer on the wall...
+...98 bottles of beer on the wall
+98 bottles of beer on the wall...
+...97 bottles of beer on the wall
+ok
+ok
+ok
+ok
+ok
+...
+ok
+2 bottles of beer on the wall...
+...1 bottle of beer on the wall
+1 bottle of beer on the wall...
+...no more bottles of beer on the wall
+no more bottles of beer on the wall...
+...99 bottles of beer on the wall
+
+with 95 verses replaced with just "ok" because the code, and the test are both calling the same `verses` method - it'll pass, it's not correct, but it'll pass.
+
 
 
