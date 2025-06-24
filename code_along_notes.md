@@ -279,6 +279,28 @@ painful as it is, the best way to do this is to just have all the lyrics in the 
 
 Alternatives to writing out the whole dang song:
 1. assert that output matches another method
-  * the first two variants used methods in our `Bottles` class to do this and ended up too tightly coupled to the code.
-  (pick up here)
+  * the first two variants used methods in our `Bottles` class to do this and ended up too tightly coupled to the code
+  * that creates a dependency - changes to the code, may break the test without changing the output of the code.
+2. Assert the expected output matches a dynamically generated string
+  * this would still require the use of logic to create the string, and risks a scenario where a code change breaks the test in a confusing way.
+3. Assert the expected output matches a hard coded string (aka the whole dang song)
+  * clear expectation
+  * no dependencies
+  * "lots of work"
 
+DRYing out lyics would introduce an abstraction.
+Abstractions don't belong in tests.
+
+### 2.12 Summary
+
+When done well Testing:
+* speeds development
+* lowers costs
+* prevents costly guesses (if you commit to writing code in small steps)
+* make it safe to refactor (when decoupled from code)
+
+Good tests
+* tell a story
+* lead to well organised solution
+
+/chapter2
