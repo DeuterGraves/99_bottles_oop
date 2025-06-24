@@ -271,5 +271,14 @@ no more bottles of beer on the wall...
 
 with 95 verses replaced with just "ok" because the code, and the test are both calling the same `verses` method - it'll pass, it's not correct, but it'll pass.
 
+listing 2.28 creates the same problems really, it just bypasses calling `verses(max, min)` to get those same problems.
 
+painful as it is, the best way to do this is to just have all the lyrics in the test.
+
+### 2.11 Considering Options
+
+Alternatives to writing out the whole dang song:
+1. assert that output matches another method
+  * the first two variants used methods in our `Bottles` class to do this and ended up too tightly coupled to the code.
+  (pick up here)
 
