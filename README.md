@@ -2,7 +2,11 @@
 
 I'm working through the 99 Bottles of OOP Ruby version by Sandi Metz.
 
-Taking [notes](/code_along_notes.md) as I read and code along.
+Taking notes as I read and code along:
+[My reflections on the prework](./notes/reflections_while_reading.md)
+[Chapter 1](./notes/chapter_1_notes.md)
+[Chapter 2](./notes/chapter_2_notes.md)
+[Chapter 3](./notes/chapter_3_notes.md)
 
 ## Installing Ruby
 
