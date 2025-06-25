@@ -1,5 +1,9 @@
 # 99 Bottles
 
+I'm working through the 99 Bottles of OOP Ruby version by Sandi Metz.
+
+Taking [notes](/code_along_notes.md) as I read and code along.
+
 ## Installing Ruby
 
 ### Windows
