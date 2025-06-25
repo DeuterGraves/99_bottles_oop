@@ -2,7 +2,7 @@
 
 I'm working through the 99 Bottles of OOP Ruby version by Sandi Metz.
 
-Taking notes as I read and code along:
+Taking notes as I read and code along:<br>
 [My reflections on the prework](./notes/reflections_while_reading.md)<br>
 [Chapter 1](./notes/chapter_1_notes.md)<br>
 [Chapter 2](./notes/chapter_2_notes.md)<br>
