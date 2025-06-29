@@ -64,11 +64,11 @@ adding the "six-pack" requirement required editing the conditional SO Shameless 
 
 (see open/closed flowchart)
 
-1. is code open to new requirement?
-  a. yes: write the new bit of code
-  b. no: do you know how to alter the code to make it open to the new requirement?
-    i. yes: make alteration then return to **1**
-    ii. no: look for code smells, isolate these flaws, correct one, return to **1** repeat until the answer to **1** is *a* and you can move forward with new code.
+1. is code open to new requirement?<br>
+  a. yes: write the new bit of code<br>
+  b. no: do you know how to alter the code to make it open to the new requirement?<br>
+    i. yes: make alteration then return to **1**<br>
+    ii. no: look for code smells, isolate these flaws, correct one, return to **1** repeat until the answer to **1** is *a* and you can move forward with new code.<br>
 
 ## 3.3 Recognising Code Smells
 (start here next time!)
