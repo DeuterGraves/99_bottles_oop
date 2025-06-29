@@ -42,3 +42,6 @@ AND - I do miserably on "which verse should be sung next".
 3. Having just read the domain questions in `1.4: Shameless Green` I'm now thinking we need:
 a. a method that outlines the verses in cases/if statements
 b. a method with logic that decides which case to call
+
+/reflections
+[ReadMe](../README.md)
