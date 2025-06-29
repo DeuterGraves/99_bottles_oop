@@ -39,16 +39,16 @@ Open/Closed: "open for extension and closed for modification"
 Code is open to new requirements when you can meet the requirement without changing the code.
 
 (refresher!)
-SOLID:
-*Single Reponsibility*
-methods in a class should be cohesive around a single purpose
-*Open - Closed*
-Objects should be open for extension, but closed for modification
-*Liskov Substitution*
-Subclasses should be substitutable for their superclasses.
-*Interface Secregation*
-Objects should not be forced to depend on methods they don't use.
-*Dependency Inversion*
+#### SOLID:
+**Single Reponsibility**<br>
+methods in a class should be cohesive around a single purpose<br>
+**Open - Closed**<br>
+Objects should be open for extension, but closed for modification<br>
+**Liskov Substitution**<br>
+Subclasses should be substitutable for their superclasses.<br>
+**Interface Secregation**<br>
+Objects should not be forced to depend on methods they don't use.<br>
+**Dependency Inversion**<br>
 Depend on abstractions, not on concretions.
 
 ### Open-Closed principle
@@ -67,8 +67,8 @@ adding the "six-pack" requirement required editing the conditional SO Shameless 
 1. is code open to new requirement?
   a. yes: write the new bit of code
   b. no: do you know how to alter the code to make it open to the new requirement?
-    i. yes: make alteration then return to *1*
-    ii. no: look for code smells, isolate these flaws, correct one, return to *1* repeat until the answer to *1* is *a* and you can move forward with new code.
+    i. yes: make alteration then return to **1**
+    ii. no: look for code smells, isolate these flaws, correct one, return to **1** repeat until the answer to **1** is *a* and you can move forward with new code.
 
 ## 3.3 Recognising Code Smells
 (start here next time!)
