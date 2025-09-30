@@ -40,13 +40,13 @@ Code is open to new requirements when you can meet the requirement without chang
 
 (refresher!)
 #### SOLID:
-**Single Reponsibility**<br>
+**Single Responsibility**<br>
 methods in a class should be cohesive around a single purpose<br>
 **Open - Closed**<br>
 Objects should be open for extension, but closed for modification<br>
 **Liskov Substitution**<br>
 Subclasses should be substitutable for their superclasses.<br>
-**Interface Secregation**<br>
+**Interface Segregation**<br>
 Objects should not be forced to depend on methods they don't use.<br>
 **Dependency Inversion**<br>
 Depend on abstractions, not on concretions.
@@ -72,7 +72,7 @@ adding the "six-pack" requirement required editing the conditional SO Shameless 
 
 ## 3.3 Recognising Code Smells
 (start here next time!)
-
+I added a bookmark in my reader app. that's what I did when I finally got back to this on 30 Sept 2025
 
 /chapter3
 [ReadMe](../README.md)
