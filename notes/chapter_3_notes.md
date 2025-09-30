@@ -13,7 +13,7 @@ new requirements tell you:
 ### 99 Bottles New Requirement!!!
 
 * feature request: output "1 six-pack" any time it currently says "6 bottles"
-  * *NB:* this is specific to "1 six-pack"
+  * **NB:** this is specific to "1 six-pack"
   * not multiples of six packs
   * "1 six-pack"
   * do not read further into requirements or try to predict the future.
