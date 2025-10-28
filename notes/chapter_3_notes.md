@@ -71,8 +71,120 @@ adding the "six-pack" requirement required editing the conditional SO Shameless 
       ii. no: look for code smells, isolate these flaws, correct one, return to **1** repeat until the answer to **1** is *a* and you can move forward with new code.<br>
 
 ## 3.3 Recognising Code Smells
-(start here next time!)
-I added a bookmark in my reader app. that's what I did when I finally got back to this on 30 Sept 2025
 
+To successfully improve code within/as preparation for a smaller piece of work is to isolate and correct them one at a time.
+
+Refactoring book sited:
+[Refactoring: Improving the Design of Existing Code](https://martinfowler.com/books/refactoring.html)
+- names many common flaws
+- gives "recipes" to fix them
+
+This book is where we got the name "code smells" 
+
+Jay Fields has done a [Ruby version](https://martinfowler.com/books/refactoringRubyEd.html) of the book.
+
+Code Smells mentioned (solution):
+- Duplicated code* (abstract away duplication)
+- Large class (divide class into several)
+- Divergent change
+- Feature envy
+- Primitive obsession
+- Inappropriate intimacy
+- Shotgun surgery
+- Switch statement*
+
+* smells actually found in the 99 bottles book/exercise
+
+To look for code smells, start with what you don't like in the code. 
+
+## 3.4 Identifying the best point of attack
+(looking at cg_bottles.rb - which appears to be the shameless green version)
+
+```ruby
+  def verse(count)
+    case count
+    when 0
+      "No more bottles of beer on the wall, no more bottles of beer.\nGo to the store and buy some more, 99 bottles of beer on the wall.\n"
+    when 1
+      "1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\n"
+    when 2
+      "2 bottles of beer on the wall, 2 bottles of beer.\nTake one down and pass it around, 1 bottle of beer on the wall.\n"
+    when 6
+      "1 six-pack of beer on the wall, 1 six-pack of beer.\nTake one down and pass it around, 5 bottles of beer on the wall.\n"
+    when 7
+      "7 bottles of beer on the wall, 7 bottles of beer.\nTake one down and pass it around, 1 six-pack of beer on the wall.\n"
+    else
+      "#{count} bottles of beer on the wall, #{count} bottles of beer.\nTake one down and pass it around, #{count-1} bottles of beer on the wall.\n"
+    end
+  end
+```
+
+case statement - "Switch statements" smell
+- branches in this case statement contain Duplicated code (also a smell)
+
+Duplicated code is the most straightforward and so addressed first. 
+
+we don't know that removing the duplication will magically make this class more open to the six pack feature but it is _likely_ a step along the way.
+
+## 3.5 Refactoring systematically
+
+As defined by Martin Fowler in his book:
+"Refactoring is the process of changing a software system in such a way that it does not alter the external behaviour of the code yet improves internal structure"
+
+2 steps to implementing new requirements:
+- rearrange existing code so it is open to new requirement
+- write the code to meet new requirement
+
+Refactoring should be done alongside testing to ensure that:
+- you don't break the existing code
+- you can discover potential flaws in the tests
+
+tests that make assertions about _how_ things are done rather than test expected outcomes are most likely to break during refactoring. 
+
+If the tests are a problem, you now have a new step in the process:
+
+~2~3 steps to implementing new requirements:
+- improve the tests
+- rearrange existing code so it is open to new requirement
+- write the code to meet new requirement
+
+
+## 3.6 following the flocking rules... 
+
+on the name - based on "flock" as in group of birds (except crows)
+- a flock's behaviour can give the impression of being centrally coordinated BUT it's individual birds
+- group's behaviour is the result of series of small decisions made by each individual 
+- these decisions are guided by these rules:
+1. Alignment - steer towards average heading of neighbors
+2. separation - don't get too close to neighbors
+3. cohesion steer towards average position of the flock
+
+[Science of Sync](https://www.ted.com/talks/steven_strogatz_the_science_of_sync) TED talk mentioned [on youtube](https://www.youtube.com/watch?v=IiXaZGZqpVI)
+
+to find what needs to be abstracted to reduce duplication in the case statement we follow these rules:
+
+### Flocking rules
+1. Select the things that are most alike
+2. Find the smallest difference between them
+3. Make the simplest change that will remove that difference
+
+### 4 steps to changing code:
+1. parse the new code (i.e. confirm syntax is valid)
+2. parse and execute it (proving the code runs without errors)
+3. parse, execute and use it's results (ensuring it returns correct result)
+4. delete unused code.
+
+making small changes give precise error messages if you make a big change and get an error you don't understand, revert it and look to make a smaller change.
+
+## 3.7 Converging on Abstractions
+### 3.7.1 Focusing on difference
+(start here, start reading from the start of this bit)
+
+See the sameness, acknowledge it, feel a bit zen, then look for the difference. 
+
+difference is more meaningful. 
+think about DRYing out difference
+
+Book [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) mentioned 
 /chapter3
 [ReadMe](../README.md)
