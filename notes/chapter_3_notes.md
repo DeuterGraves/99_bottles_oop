@@ -186,5 +186,23 @@ difference is more meaningful.
 think about DRYing out difference
 
 Book [Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612) mentioned 
+
+Goal: encapsulate the concept that varies. 
+
+two examples represent the same abstraction but contain 1 difference, that difference represents a smaller abstraction within the larger one. "if you can name the difference, you've identified the smaller abstraction"
+
+applying the rules of refactoring converts difference to sameness as part of the process
+you don't have to identify the abstractions in preparation for refactoring 
+
+in this way a solution is discovered via refactoring. 
+
+for verse case statement:
+1. start with the two branches that are most alike and try to make them identical. (answer: `when 2` and the `else` branches are most identical)
+
+###3.7.2 Simplifiying Hard Problems
+
+2. make these two branches identical - ignore all tangents that may arise.
+
+
 /chapter3
 [ReadMe](../README.md)
