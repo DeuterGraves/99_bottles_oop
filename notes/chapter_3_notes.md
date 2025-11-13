@@ -109,10 +109,6 @@ To look for code smells, start with what you don't like in the code.
       "1 bottle of beer on the wall, 1 bottle of beer.\nTake one down and pass it around, no more bottles of beer on the wall.\n"
     when 2
       "2 bottles of beer on the wall, 2 bottles of beer.\nTake one down and pass it around, 1 bottle of beer on the wall.\n"
-    when 6
-      "1 six-pack of beer on the wall, 1 six-pack of beer.\nTake one down and pass it around, 5 bottles of beer on the wall.\n"
-    when 7
-      "7 bottles of beer on the wall, 7 bottles of beer.\nTake one down and pass it around, 1 six-pack of beer on the wall.\n"
     else
       "#{count} bottles of beer on the wall, #{count} bottles of beer.\nTake one down and pass it around, #{count-1} bottles of beer on the wall.\n"
     end
@@ -203,6 +199,11 @@ for verse case statement:
 
 2. make these two branches identical - ignore all tangents that may arise.
 
+first we change the hard coded 2 and 1 to `count` and `count-1` 
+
+now our only difference between the two branches is bottle/bottles on the last phrase. 
+
+What does this difference _mean_?
 
 /chapter3
 [ReadMe](../README.md)
