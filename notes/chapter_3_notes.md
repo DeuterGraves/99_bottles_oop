@@ -195,7 +195,7 @@ in this way a solution is discovered via refactoring.
 for verse case statement:
 1. start with the two branches that are most alike and try to make them identical. (answer: `when 2` and the `else` branches are most identical)
 
-###3.7.2 Simplifiying Hard Problems
+### 3.7.2 Simplifiying Hard Problems
 
 2. make these two branches identical - ignore all tangents that may arise.
 
@@ -205,7 +205,7 @@ now our only difference between the two branches is bottle/bottles on the last p
 
 What does this difference _mean_?
 
-###3.7.3 Naming Concepts
+### 3.7.3 Naming Concepts
 
 to make 2 verses "the same" in code, you have to:
 - find the underlying difference and it's abstraction
@@ -240,7 +240,7 @@ What are these things? carafes, cans, bottles, six-packs?
 "unit" is too vague - this is likely several layers of abstraction above what we're looking for
 "pluralisation" - is too broad and doesn't really scope us to bottles/six-packs/cans whathaveyou
 
-###3.7.4 Making Methodical Transformations
+### 3.7.4 Making Methodical Transformations
 Best to make these changes in a series of small steps rather than all in 1 edit:
 - this way you know which changes are successful and which break tests
 - code that passes tests throughout the process of making the change could be merged at any point
@@ -253,7 +253,19 @@ Best to make these changes in a series of small steps rather than all in 1 edit:
 - run tests after every change
 - if you go red, undo and make a better change
 
+Steps:
+1. create empty container method (committed)
+2. run tests - proves so far, our method is syntactically correct - separating parse from execute (rule 3 a)
+3. smallest possible change - make container method work for 1 case - "bottle" or "bottles".
+4. run tests
+5. replace relevant instances of "bottles" with the message send (method call) #{container}
+6. run tests
 
+now to get "container" to take an argument you have to change 2 lines (the method definition and where we call the method)
+- which we are trying to avoid doing - we're aiming for 1 change at a time 
+
+### 3.7.5 Refactoring Gradually
+(pick up here)
 
 /chapter3
 [ReadMe](../README.md)
