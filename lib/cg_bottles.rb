@@ -25,6 +25,7 @@ class CgBottles
   end
 
   def container
+    "bottles"
   end
 
 end
