@@ -205,5 +205,55 @@ now our only difference between the two branches is bottle/bottles on the last p
 
 What does this difference _mean_?
 
+###3.7.3 Naming Concepts
+
+to make 2 verses "the same" in code, you have to:
+- find the underlying difference and it's abstraction
+- name it (name the concept that abstraction represents)
+- create a method named after it
+- replace the two differences with a common message send (this new method)
+
+in this case - what do the words "bottle" and "bottles" represent in the song?
+- naming it "bottle" is simply naming it for it's current implementation and not seeing what "bottle" is in the larger scheme of things
+- within the context of the song - "bottle/bottles" doesn't represent pluralization (which... what?)
+
+The new requirement: replace "bottle/bottles" with "six-pack" (where numerically appropriate)
+"six-pack" is another example of the mystery abstraction
+
+*the name of a thing should be 1 level of abstraction _higher_ than the thing itself* 
+bottle/ bottles/ six-pack are instances of a category - name the category using language of the domain. 
+
+think of a table:
+number  xxx
+1       bottle
+6       six-pack
+n       bottles
+
+really, we're trying to label the second column.
+
+think about other relevant "units" 24 - case 12 - half case
+what about wine? carafe? juice? boxes soft drinks? cans
+
+What are these things? carafes, cans, bottles, six-packs?
+
+"container" is meaningful, understandable, unambiguous 
+"unit" is too vague - this is likely several layers of abstraction above what we're looking for
+"pluralisation" - is too broad and doesn't really scope us to bottles/six-packs/cans whathaveyou
+
+###3.7.4 Making Methodical Transformations
+Best to make these changes in a series of small steps rather than all in 1 edit:
+- this way you know which changes are successful and which break tests
+- code that passes tests throughout the process of making the change could be merged at any point
+  - this can help you avoid a mega PR
+  - means that if for whatever reason (hit by a bus) the project can continue with someone else taking over
+
+[QUICK REMINDER OF FLOCKING RULES AND COROLLARIES](#flocking-rules) 
+
+- change only 1 line at a time
+- run tests after every change
+- if you go red, undo and make a better change
+
+
+
 /chapter3
 [ReadMe](../README.md)
