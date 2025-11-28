@@ -24,8 +24,11 @@ class CgBottles
     verses(99,0)
   end
 
-  def container
-    "bottles"
+  def container(number=:FIXME)
+    if number == 1
+      "bottle"
+    else
+      "bottles"
+    end
   end
-
 end
