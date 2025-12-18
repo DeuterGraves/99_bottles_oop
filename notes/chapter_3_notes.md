@@ -317,6 +317,26 @@ In listing 3.17 we modify the `when 2` case and now we are always sending a numb
 
 Also, now the `else` case and the `when 2` case are identical. A next refactor can remove one of these (my guess is - `when 2` because let's remove specificity where we can!)
 
+Horizonal Refactoring notes - steps with * were changes to code:
+1. identified verse 2 and else as the most similar cases
+2. worked from left to right
+3. changed `verse` `2` case to replace hard coded 2 with `#{number}` (count in my case) twice*
+4. changed `verse` `2` case to replace hard coded 1 with `#{number-1}` (count)* 
+5. identified "bottle" and "bottles" as the next difference
+6. chose `container` for the name of the concept represented by this difference
+7. created empty `container` method*
+8. changed `container` method to return "bottles"*
+9. changed `verse` `else` case to send `container` in place of "bottles"*
+10. changed `container` to take `number` (count) argument with default `:FIXME`*
+11. added conditional logic to `container` to return "bottle" or "bottles" based on `number` (count)*
+12. changed `verse` `else` case to pass `number-1` to `container`*
+13. changed `verse` `2` case to send `container(number-1)` in place of "bottle"*
+14. deleted `verse` `2` case*
+15. deleted `container``:FIXME` `number` default argument*
+
+Many several small contained changes, checked at every step by running tests avoids lengthy dubugging sessions so this is fast and low-stress.
+
+You can merge steps and make a couple changes together, but "let red be your guide" if you take a big step and the stest start to fail, undo and break it up into smaller changes.
 
 /chapter3
 [ReadMe](../README.md)
