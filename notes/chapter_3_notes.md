@@ -83,7 +83,7 @@ This book is where we got the name "code smells"
 
 Jay Fields has done a [Ruby version](https://martinfowler.com/books/refactoringRubyEd.html) of the book.
 
-Code Smells mentioned (solution):
+Code Smells mentioned (w/ solution):
 - Duplicated code* (abstract away duplication)
 - Large class (divide class into several)
 - Divergent change
@@ -337,6 +337,18 @@ Horizonal Refactoring notes - steps with * were changes to code:
 Many several small contained changes, checked at every step by running tests avoids lengthy dubugging sessions so this is fast and low-stress.
 
 You can merge steps and make a couple changes together, but "let red be your guide" if you take a big step and the stest start to fail, undo and break it up into smaller changes.
+
+## 3.8 Summary
+
+Here we used Open-Closed Principle to change chode.
+1. Refactor the exisiting code to be open to the new requirement
+2. add the new code
+
+When the first step is not obvious, be guided by [code smells](#33-recognising-code-smells)
+- improve code by identifying and removing smells
+- *have faith that as code improves, the path to openness will appear*
+
+opeing code up to new requirements often requires identifying and naming abstractions the [flocking rules](#flocking-rules) concentrate on turning difference into sameness
 
 /chapter3
 [ReadMe](../README.md)
