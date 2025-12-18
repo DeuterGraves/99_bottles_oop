@@ -7,6 +7,7 @@ Taking notes as I read and code along:<br>
 [Chapter 1](./notes/chapter_1_notes.md)<br>
 [Chapter 2](./notes/chapter_2_notes.md)<br>
 [Chapter 3](./notes/chapter_3_notes.md)<br>
+[Chapter 4](./notes/chapter_4_notes.md)<br>
 
 ## Installing Ruby
 
