@@ -52,4 +52,5 @@ This is good. That is all. lol.
 ### 1.2.3 Comparing Solutions
 https://github.com/seattlerb/flog flog sounds like an interesting code evaluation tool - based on ABC method - Assignments, Branches, and Conditionals.
 
-/chapter 1
+/chapter1
+[ReadMe](../README.md)
