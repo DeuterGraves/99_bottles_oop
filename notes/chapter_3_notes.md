@@ -313,7 +313,9 @@ with the argument you know that the argument will get you to the false branch.
 
 both of these scenarios have to work to confirm that the code actually works as intended so it's valid to check both.
 
-Bookmark left in book here. (just above listing 3.17)
+In listing 3.17 we modify the `when 2` case and now we are always sending a number when we call `container` - we can delete the :FIXME default.
+
+Also, now the `else` case and the `when 2` case are identical. A next refactor can remove one of these (my guess is - `when 2` because let's remove specificity where we can!)
 
 
 /chapter3
