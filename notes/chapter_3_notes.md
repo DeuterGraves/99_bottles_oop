@@ -265,7 +265,56 @@ now to get "container" to take an argument you have to change 2 lines (the metho
 - which we are trying to avoid doing - we're aiming for 1 change at a time 
 
 ### 3.7.5 Refactoring Gradually
-(pick up here)
+Book mentioned: [Refactoring to Patterns by Joshua Keriesvsky](https://archive.org/details/refactoringtopat0000keri)<br>
+[Refactoring to Patterns by Joshua Keriesvsky](https://www.amazon.co.uk/Refactoring-Patterns-Addison-Wesley-Signature-Kerievsky/dp/0321213351)
+
+discusses :"Gradual Cutover Refactoring" - keeping code in a releasable state by gradually switching over small pieces at a time
+can be done alongside other dev work 
+
+You ought not change everything at once 
+you have to figure out howto allow some sends to pass the new argument while others are unchanged
+here's where optional arguments that have a set default are handy.
+
+```ruby
+def container(number=:FIXME)
+  "bottles"
+end
+```
+
+:FIXME is a default which populates the argument, avoiding an arguments error, and doesn't affect the outcome of the internal code, and reminds us to not see it as permanent FIX ME!!!! "usefully wrong"
+
+next steps:
+- Change the receiver (the actual method): if you change `container` to check the value of `number` and return "bottle" or "bottles"
+- Change the sender (the method call): alter the `else` branch to add the `number` argument to the `container` call
+
+Refactoring rules say: you must pick ONLY ONE of these as your next step. 
+The best choice is to change the receiver (the actual method)
+
+```ruby
+  def container(number=:FIXME)
+    if number == 1
+      "bottle"
+    else
+      "bottles"
+    end
+  end
+```
+
+The tests still pass without changing the call or anything, of course, we're only calling container in 1 place and we're not passing it an argument and in that place, it will always be "bottles" so functionally, this is no great change.
+
+Technically this is a multiline change, but, it could be a ternary on one line - it's just easier to read and work with like this. So we're not _really_ breaking the "change only 1 line at a time rule" with this, eventhough to a pedant, we are.
+
+Adding a new branch to the conditional but only executing the previously existing code is an example of the Open/Closed Principle. The `container` method is open to a new requirement, allowing it to change what's returned, but keeping this a quite contained/controlled/small change makes it easier to debug as we go.
+
+Now we change the sender to pass an argument. now we are routing to the "false" branch of the statement because the argument passed IS NOT 1, not because the default argument is not 1, we are now functionally using this method as intended.
+
+with the default you know that if you got to the `false` branch the tests pass
+with the argument you know that the argument will get you to the false branch.
+
+both of these scenarios have to work to confirm that the code actually works as intended so it's valid to check both.
+
+Bookmark left in book here. (just above listing 3.17)
+
 
 /chapter3
 [ReadMe](../README.md)
