@@ -53,4 +53,6 @@ This is good. That is all. lol.
 https://github.com/seattlerb/flog flog sounds like an interesting code evaluation tool - based on ABC method - Assignments, Branches, and Conditionals.
 
 /chapter1
+
+[Chapter 2](chapter_2_notes.md)
 [ReadMe](../README.md)

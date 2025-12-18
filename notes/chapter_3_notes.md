@@ -351,4 +351,7 @@ When the first step is not obvious, be guided by [code smells](#33-recognising-c
 opeing code up to new requirements often requires identifying and naming abstractions the [flocking rules](#flocking-rules) concentrate on turning difference into sameness
 
 /chapter3
+
+[Chapter 2](chapter_2_notes.md)
+[Chapter 4](chapter_4_notes.md)
 [ReadMe](../README.md)

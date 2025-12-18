@@ -203,4 +203,7 @@ Good tests
 * lead to well organised solution
 
 /chapter2
+
+[Chapter 1](chapter_1_notes.md)
+[Chapter 3](chapter_3_notes.md)
 [ReadMe](../README.md)
